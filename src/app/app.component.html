@@ -1,20 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-md fixed-top navbar-light">
+  <button class="navbar-toggler" type="button" (click)="showNavbar = !showNavbar">
+    <div class="icon" [ngClass]="{'open': showNavbar}">
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{'show': showNavbar}">
+    <ul class="navbar-nav mr-auto ml-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="showNavbar = false">
+        <a class="nav-link pr-3 pl-3" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
+        <a class="nav-link pr-3 pl-3" routerLink="/about">About</a>
+      </li>
+      <a class="navbar-brand mr-4 ml-4 d-none d-md-block" routerLink="/">
+        <svg viewBox="0 0 172 188" width="35" height="35">
+          <g transform="matrix(10.659895742123625,0,0,10.659895742123625,0.0000013898922166762012,-248.39587034922016)">
+            <path d="M1.38 24.240000000000002 l-1.38 0 l0 0.64 l0.9 0 l0.44 0 q2.46 0 3.7 1.42 t1.24 3.7 l0 0.22 q0 2.24 -1.24 3.66 t-3.7 1.42 l-0.64 0 l0 0 l-0.44 0 l-0.22 0 l-0.04 0 l0 4.7 l0.7 0 l0 -4.04 l0.68 0 q2.76 0 4.19 -1.63 t1.43 -4.09 l0 -0.26 q0 -2.46 -1.45 -4.1 t-4.17 -1.64 z M13.416 35.22 q1.28 -0.72 1.96 -2.03 t0.68 -2.97 l0 -0.28 q0 -2.46 -1.47 -4.08 t-4.19 -1.62 l-1.38 0 l0 6.34 q0.34 0.02 0.68 0.02 l0 -5.72 l0.66 0 q2.46 0 3.72 1.43 t1.26 3.67 l0 0.22 q0 2.22 -1.26 3.64 t-3.72 1.42 l-0.66 0 l0 0 l-0.68 0 l0 0.64 q0.6 0.02 0.8 0.02 l0.58 0 q1.38 0 2.42 -0.42 l2.48 4.5 l0.8 0 z"></path>
+          </g>
+        </svg>
+      </a>
+      <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
+        <a class="nav-link pr-3 pl-3" routerLink="/skills">Skills</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
+        <a class="nav-link pr-3 pl-3" routerLink="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
