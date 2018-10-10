@@ -1,26 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800');
 
-$black: #000000;
+$black: #222E50;
+$white: #ffffff;
 $light-black: rgba(0, 0, 0, 0.5);
 $light-black-hover: rgba(0, 0, 0, 0.9);
 $light-white: rgba(255, 255, 255, 0.7);
 $dark-white: rgba(255, 255, 255, 0.95);
 
-html, body {
-  overflow: hidden;
-}
+$blue: rgba(74,143,231, 1);
+$blue-hover: rgba(74,143,231, 0.5);
+
+$red: #E07A5F;
 
 body {
-  font-family: 'Roboto', sans-serif;
-  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  //height: 100vh;
+  margin-top: 100px;
+  color: $black;
 }
 
 @media (min-width: 768px) {
   body {
-    margin: 75px;
-    height: calc(100vh - 150px);
-    width: calc(100% - 150px);
+    //margin: 75px;
+    //height: calc(100vh - 150px);
+    //width: calc(100% - 150px);
   }
 }
 
@@ -29,8 +33,29 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 100;
+  font-weight: 800;
 }
+
+h1 {
+  font-size: 3.5rem;
+  position: relative;
+  color: $red;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    height: 4px;
+    background-color: $red;
+    width: 50px;
+  }
+}
+
+h5 {
+  font-weight: 500;
+}
+
 
 p {
   font-weight: 300;
@@ -89,7 +114,7 @@ svg, .social .icon {
 }
 
 .btn-dark {
-  color: #000;
+  color: $blue;
   font-weight: 400;
   background: transparent;
   border-radius: 0;
@@ -98,6 +123,12 @@ svg, .social .icon {
   font-size: 8pt;
   width: auto;
   margin: 0 auto;
+  border: 1px solid $blue;
+
+  &:hover, &:focus {
+    background: $blue;
+    border: 1px solid $blue;
+  }
 }
 
 .content {
@@ -118,7 +149,7 @@ svg, .social .icon {
   min-height: 100%;
 }
 
-.bg {
+.bg1 {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -151,6 +182,59 @@ svg, .social .icon {
   }
 }
 
+.bg-container {
+  height: 100vh;
+  right: 0;
+  top: 0;
+}
+
+.bg {
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  -webkit-clip-path: polygon(0 0, 0 0, 15% 100%, 100% 100%, 100% 0);
+  clip-path: polygon(0 0, 0 0, 15% 100%, 100% 100%, 100% 0);
+
+
+  &.bg-home {
+    background-image: url('/assets/images/bg-contact.jpg');
+  }
+
+  &.bg-about {
+    background-image: url('/assets/images/bg-about.jpg');
+  }
+
+  &.bg-portfolio {
+    background-image: url('/assets/images/bg2.jpg');
+  }
+
+  &.bg-skills {
+    background-image: url('/assets/images/bg2.jpg');
+  }
+
+  &.bg-contact {
+    background-image: url('/assets/images/bg1.jpg');
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0px;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+  }
+}
+
 .square {
   height: 35px;
   width: 35px;
@@ -178,11 +262,21 @@ table {
 
     th {
       width: 80px;
-      font-weight: 400;
+      font-weight: 700;
     }
   }
 }
 
 .w-90 {
   width: 90%!important;
+}
+
+.center-in-body {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+}
+
+.text-blue {
+  color: $blue!important;
 }
