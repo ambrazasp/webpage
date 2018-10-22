@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'portfolio', component: PortfolioComponent},
   {path: 'skills', component: SkillsComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: '**', redirectTo: '/'},
 ];
 
 @NgModule({
