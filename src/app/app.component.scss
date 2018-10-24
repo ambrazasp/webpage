@@ -112,7 +112,13 @@
           .nav-link {
             font-size: 2em;
             font-weight: 900;
-            color: $white;
+            color: $light-white;
+          }
+          &.active {
+
+            .nav-link {
+              color: $white;
+            }
           }
         }
       }
