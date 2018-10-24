@@ -219,6 +219,7 @@ svg, .social .icon {
 }
 
 .bg-container {
+  pointer-events: none;
   height: 100vh;
   right: 0;
   top: 0;

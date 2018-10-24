@@ -96,10 +96,10 @@
       justify-items: center;
       align-items: center;
       overflow: hidden;
-      -webkit-transition: opacity 1s linear;
-      -moz-transition: opacity 1s linear;
-      -o-transition: opacity 1s linear;
-      transition: opacity 1s linear;
+      -webkit-transition: 1s linear;
+      -moz-transition: 1s linear;
+      -o-transition: 1s linear;
+      transition: 1s linear;
 
 
       &.show {
