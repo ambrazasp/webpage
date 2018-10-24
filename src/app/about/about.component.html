@@ -1,5 +1,6 @@
 <div class="bg-container position-fixed w-md-50 w-100">
-  <div class="bg bg-about position-absolute w-100">
+  <div class="bg position-absolute w-100">
+    <img class="w-100 h-100" [src]="background" (load)="onLoad()"/>
   </div>
 </div>
 
@@ -16,7 +17,7 @@
           <th>2018 01 15<br/>now</th>
           <td>
             <p>Front-end Developer</p>
-            <p class="caption">MailerLite</p>
+            <p class="caption"><a href="https://www.mailerlite.com">MailerLite</a></p>
             <p class="sub-caption">Vilnius, Lithuania</p>
           </td>
         </tr>
@@ -24,7 +25,7 @@
           <th>2017 03 01<br/>2017 06 12</th>
           <td>
             <p>Chief Specialist</p>
-            <p class="caption">State consumer rights protection authority</p>
+            <p class="caption"><a href="https://www.vvtat.lt">State consumer rights protection authority</a></p>
             <p class="sub-caption">Vilnius, Lithuania</p>
           </td>
         </tr>
@@ -32,7 +33,7 @@
           <th>2016 11 21<br/>2017 04 13</th>
           <td>
             <p>Mathematics tutor</p>
-            <p class="caption">Zingeida</p>
+            <p class="caption"><a href="https://www.pasimokome.lt/">Zingeida</a></p>
             <p class="sub-caption">Vilnius, Lithuania</p>
           </td>
         </tr>
@@ -40,7 +41,7 @@
           <th>2016 02 08<br/>2016 08 31</th>
           <td>
             <p>Junior Software Engineer</p>
-            <p class="caption">Bentley Systems (internship)</p>
+            <p class="caption"><a href="https://www.bentley.com/">Bentley Systems (internship)</a></p>
             <p class="sub-caption">Vilnius, Lithuania</p>
           </td>
         </tr>
@@ -99,4 +100,9 @@
 
     </div>
   </div>
+</div>
+
+
+<div class="loader" *ngIf="loading">
+  <img src="/assets/loading.svg" width="150"/>
 </div>

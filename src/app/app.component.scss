@@ -34,7 +34,7 @@
         }
       }
 
-      &:hover {
+      &:not(.active):hover {
         .nav-link {
           color: $dark-white;
           &:hover, &:active {
@@ -207,5 +207,23 @@
     .line:last-child {
       transform: rotate(-45deg);
     }
+  }
+}
+
+.loader {
+  z-index: 1000;
+  background: $white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: calc(50% - 75px);
+    top: calc(50% - 75px);
   }
 }

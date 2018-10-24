@@ -14,17 +14,17 @@
         </a>
       </div>
       <ul class="navbar-nav ml-auto mr-auto mr-md-none">
-        <li class="nav-item" (click)="showNavbar = false" routerLinkActive="active"
+        <li class="nav-item" (click)="changeRoute()" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link pr-3 pl-3 mr-3 position-relative" routerLink="/"><span>Home</span></a>
+          <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/"><span>Home</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
-          <a class="nav-link pr-3 pl-3 mr-3 position-relative" routerLink="/about"><span>About</span></a>
+        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
+          <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/about"><span>About</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
-          <a class="nav-link pr-3 pl-3 mr-3 position-relative" routerLink="/skills"><span>Skills</span></a>
+        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
+          <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/skills"><span>Skills</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="showNavbar = false">
+        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
           <a class="nav-link pr-3 pl-3 position-relative" routerLink="/contact"><span>Contact</span></a>
         </li>
       </ul>
@@ -34,3 +34,8 @@
 </nav>
 
 <router-outlet></router-outlet>
+
+
+<div class="loader" *ngIf="loading" [@enterAnimation]>
+  <img src="/assets/loading.svg" width="150"/>
+</div>

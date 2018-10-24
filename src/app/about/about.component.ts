@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Host, OnInit} from '@angular/core';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  background = '/assets/images/bg3.jpg';
+  parent: any;
+  constructor(@Host() parent: AppComponent) {
+    this.parent = parent;
+    this.parent.loading = true;
+  }
 
   ngOnInit() {
   }
 
+  onLoad() {
+    var that = this;
+    setTimeout(function() {
+      that.parent.loading = false;
+    }, 500);
+  }
 }
