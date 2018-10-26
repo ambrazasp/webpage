@@ -10,6 +10,7 @@ $dark-white: rgba(255, 255, 255, 0.95);
 
 $blue-dark: rgba(34,46,80,1);
 $blue-dark-hover: rgba(34,46,80, .7);
+$blue-dark-input: rgba(34,46,80, .5);
 $blue-menu: rgba(34,46,80, .9);
 $blue: rgba(74,143,231, 1);
 $blue-hover: rgba(74,143,231, 0.5);
@@ -130,15 +131,15 @@ button {
 
 input, textarea {
   &.form-control {
-    font-size: 10pt;
-    font-weight: 300;
+    font-size: 11pt;
+    color: $blue-dark;
+    font-weight: 400;
     border-radius: 0;
     border: none;
     background-color: transparent !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid $blue-dark-input;
     margin-bottom: 1rem;
     height: auto;
-    padding: 0.4rem 0.5rem;
 
     resize: none;
     overflow: hidden;
@@ -148,9 +149,13 @@ input, textarea {
     }
 
     &:hover, &:focus {
-      border-bottom: 1px solid $light-black;
+      border: 1px solid $blue-dark;
     }
   }
+}
+
+textarea {
+  overflow: scroll!important;
 }
 
 svg, .social .icon {
