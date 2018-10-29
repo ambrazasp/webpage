@@ -6,7 +6,8 @@ $white: #ffffff;
 $light-black: rgba(0, 0, 0, 0.5);
 $light-black-hover: rgba(0, 0, 0, 0.9);
 $light-white: rgba(255, 255, 255, 0.7);
-$dark-white: rgba(255, 255, 255, 0.95);
+$dark-white: rgba(255, 255, 255, 1);
+$dark-white-input: rgba(255, 255, 255, 0.5);
 
 $blue-dark: rgba(34,46,80,1);
 $blue-dark-hover: rgba(34,46,80, .7);
@@ -15,7 +16,8 @@ $blue-menu: rgba(34,46,80, .9);
 $blue: rgba(74,143,231, 1);
 $blue-hover: rgba(74,143,231, 0.5);
 
-$orange: #E07A5F;
+$orange: rgb(224,122,95);
+$orange-contact: rgba(224,122,95, 0.95);
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -25,6 +27,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem!important;
+  }
+
   body {
     margin-top: 100px;
   }
@@ -54,15 +60,6 @@ body {
   .mr-md-none {
     margin-right: 0!important;
   }
-
-  .square {
-    &:first-child {
-      margin-left: 0px!important;
-    }
-    &:last-child {
-      margin-right: 0px!important;
-    }
-  }
 }
 
 ::-webkit-scrollbar {
@@ -74,9 +71,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   position: relative;
   color: $orange;
+
+  &.blue {
+    color: $blue-dark;
+    &:after {
+      background-color: $blue-dark;
+    }
+  }
 
   &:after {
     content: '';
@@ -86,6 +90,7 @@ h1 {
     height: 4px;
     background-color: $orange;
     width: 50px;
+
   }
 }
 
@@ -103,6 +108,10 @@ p {
   }
   &.sub-caption {
     font-size: .7rem;
+  }
+  &.subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
   }
 
   a {
@@ -132,28 +141,40 @@ button {
 input, textarea {
   &.form-control {
     font-size: 11pt;
-    color: $blue-dark;
-    font-weight: 400;
+    font-weight: 800;
     border-radius: 0;
     border: none;
     background-color: transparent !important;
-    border: 1px solid $blue-dark-input;
+    color: $blue-dark;
+    border: 2px solid $blue-dark-input;
     margin-bottom: 1rem;
     height: auto;
-
     resize: none;
     overflow: hidden;
 
+    &.invert {
+      color: $white;
+      border: 2px solid $dark-white-input;
+    }
     &:focus {
       box-shadow: none;
     }
 
     &:hover, &:focus {
-      border: 1px solid $blue-dark;
+      border: 2px solid $blue-dark;
+
+      &.invert {
+        border: 2px solid $white;
+      }
+
     }
   }
 }
 
+::placeholder {
+  color: $light-white;
+  opacity: 1;
+}
 textarea {
   overflow: scroll!important;
 }
@@ -161,12 +182,16 @@ textarea {
 svg, .social .icon {
   &:hover {
     g {
-      fill: $light-black-hover;
+      fill: $white;
     }
   }
 
   g {
-    fill: $light-black;
+    fill: $light-white;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
   }
 }
 
@@ -179,7 +204,6 @@ svg, .social .icon {
 }
 
 .btn-primary {
-  color: $blue-dark;
   font-weight: 800;
   background: transparent;
   border-radius: 0;
@@ -188,20 +212,33 @@ svg, .social .icon {
   font-size: 10pt;
   width: auto;
   margin: 0 auto;
-  border: 1px solid $blue-dark;
   outline: none!important;
+
+  color: $blue-dark;
+  border: 2px solid $blue-dark;
 
   -webkit-transition: .2s ease-in-out;
   -moz-transition: .2s ease-in-out;
   -o-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
 
-  &:hover, &:focus {
-    background: $blue-dark!important;
-    border: 1px solid $blue-dark!important;
-    outline-color: transparent!important;
-    outline-style: none!important;
+  &.invert {
     color: $white;
+    border: 2px solid $white;
+  }
+
+  &:hover, &:focus, &:active {
+    background: $blue-dark!important;
+    border: 2px solid $blue-dark!important;
+    outline: none;
+    box-shadow: none!important;
+    color: $white;
+
+    &.invert {
+      background: $white!important;
+      border: 2px solid $white!important;
+      color: $orange;
+    }
   }
 }
 
@@ -241,41 +278,16 @@ svg, .social .icon {
   img {
     object-fit: cover;
   }
-
-  //&.bg-home {
-  //  background-image: url('/assets/images/bg-contact.jpg');
-  //}
-  //
-  //&.bg-about {
-  //  background-image: url('/assets/images/bg3.jpg');
-  //}
-  //
-  //&.bg-portfolio {
-  //  background-image: url('/assets/images/bg2.jpg');
-  //}
-  //
-  //&.bg-skills {
-  //  background-image: url('/assets/images/bg2.jpg');
-  //}
-  //
-  //&.bg-contact {
-  //  background-image: url('/assets/images/bg1.jpg');
-  //}
 }
 
 .square {
   height: 35px;
   width: 35px;
-  border: 1px solid $light-black;
-  margin: 15px;
   position: relative;
 
-  &:hover {
-    border: 1px solid $light-black-hover;
-  }
   svg {
-    height: 15px;
-    width: 15px;
+    height: 40px;
+    width: 40px;
   }
 
 }
@@ -323,11 +335,12 @@ table {
 .navbar {
 
   .navbar-bg {
-    height: 100px;
+    height: 70px;
     position: absolute;
     left: 0;
     top: 0;
     background: $white;
+
   }
 
   .container {

@@ -14,18 +14,18 @@
         </a>
       </div>
       <ul class="navbar-nav ml-auto mr-auto mr-md-none">
-        <li class="nav-item" (click)="changeRoute()" routerLinkActive="active"
+        <li class="nav-item" (click)="changeRoute('/')" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/"><span>Home</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
+        <li class="nav-item" routerLinkActive="active" (click)="changeRoute('/about')">
           <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/about"><span>About</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
+        <li class="nav-item" routerLinkActive="active" (click)="changeRoute('/skills')">
           <a class="nav-link pr-3 pl-3 mr-lg-3 position-relative" routerLink="/skills"><span>Skills</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" (click)="changeRoute()">
-          <a class="nav-link pr-3 pl-3 position-relative" routerLink="/contact"><span>Contact</span></a>
+        <li class="nav-item" (click)="changeRoute('')">
+          <a class="nav-link pr-3 pl-3 position-relative" data-toggle="modal" data-target="#exampleModal" href="javascript:;"><span>Contact me</span></a>
         </li>
       </ul>
     </div>
@@ -35,6 +35,7 @@
 
 <router-outlet></router-outlet>
 
+<app-contact [(visible)]="visibleContact"></app-contact>
 
 <div class="loader" *ngIf="loading" [@enterAnimation]>
   <img src="/assets/loading.svg" width="150"/>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Host} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,22 @@ import {animate, style, transition, trigger} from '@angular/animations';
         ])
       ]
     )
-  ],
+  ]
 })
 export class AppComponent {
   showNavbar = false;
   loading = true;
+  visibleContact = false;
 
-  changeRoute() {
-    this.loading = true;
+  constructor(private router: Router) {
+  }
+
+  changeRoute(url) {
+    if (url === '') {
+      this.visibleContact = true;
+    } else if (this.router.url !== url) {
+      this.loading = true;
+    }
     this.showNavbar = false;
   }
 }
