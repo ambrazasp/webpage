@@ -34,7 +34,7 @@
         }
       }
 
-      &:not(.active):hover {
+      &:hover {
         .nav-link {
           color: $dark-white;
           &:hover, &:active {
