@@ -1,4 +1,4 @@
-import {Component, Host} from '@angular/core';
+import {Component, Host, Renderer2} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {Router} from '@angular/router';
 
@@ -20,9 +20,10 @@ import {Router} from '@angular/router';
 export class AppComponent {
   showNavbar = false;
   loading = true;
-  visibleContact = false;
+  visibleContactValue = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private renderer: Renderer2) {
   }
 
   changeRoute(url) {
@@ -32,5 +33,18 @@ export class AppComponent {
       this.loading = true;
     }
     this.showNavbar = false;
+  }
+
+  set visibleContact(val) {
+    if (val) {
+      this.renderer.addClass(document.body, 'overflow-hidden');
+    } else {
+      this.renderer.removeClass(document.body, 'overflow-hidden');
+    }
+    this.visibleContactValue = val;
+  }
+
+  get visibleContact() {
+    return this.visibleContactValue;
   }
 }

@@ -139,6 +139,9 @@ button {
 }
 
 input, textarea {
+  &.border-danger {
+    border-color: $orange!important;
+  }
   &.form-control {
     font-size: 11pt;
     font-weight: 800;
@@ -238,7 +241,7 @@ svg, .social .icon {
     border: 2px solid $dark-white-input;
   }
 
-  &:hover, &:focus, &:active {
+  &:hover, &:active {
     background: $blue-dark!important;
     border: 2px solid $blue-dark!important;
     outline: none;
@@ -250,6 +253,10 @@ svg, .social .icon {
       border: 2px solid $white!important;
       color: $blue-dark;
     }
+  }
+  &:focus {
+    box-shadow: none!important;
+    outline: none;
   }
 }
 
@@ -365,4 +372,8 @@ table {
   .container {
     z-index: 100;
   }
+}
+
+.overflow-hidden {
+  overflow: hidden!important;
 }

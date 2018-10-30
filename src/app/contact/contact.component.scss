@@ -20,7 +20,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #32322Cf0;
+  background: rgba(50,50,44,0.9);
   z-index: 1100;
   transition: 1s ease-in-out;
 
@@ -33,6 +33,7 @@
     cursor: pointer;
     position: absolute;
     right: 0;
+    top: 0;
 
     &:hover {
       color: $white;

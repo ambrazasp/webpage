@@ -1,4 +1,9 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-light">
+  <div class="logo position-fixed">
+    <a class="navbar-brand d-block d-md-none" routerLink="/">
+      <img src="/assets/images/logo.png" height="15"/>
+    </a>
+  </div>
   <div class="w-50 navbar-bg d-md-block d-none"></div>
   <div class="container">
     <button class="navbar-toggler" type="button" (click)="showNavbar = !showNavbar">
@@ -33,7 +38,9 @@
 
 </nav>
 
-<router-outlet></router-outlet>
+<div>
+  <router-outlet></router-outlet>
+</div>
 
 <app-contact [(visible)]="visibleContact"></app-contact>
 

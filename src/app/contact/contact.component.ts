@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Host, HostListener, Input, OnInit, Output} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {AppComponent} from '../app.component';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -27,13 +27,25 @@ export class ContactComponent implements OnInit {
 
   background = '/assets/images/bg1.jpg';
   visibleValue = false;
-  parent: any;
-  constructor(@Host() parent: AppComponent) {
-    this.parent = parent;
-    this.parent.loading = true;
+  name = '';
+  nameError = false;
+  email = '';
+  emailError = false;
+  message = '';
+  messageError = false;
+
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    // this.http.get('./assets/contacts.json').subscribe(
+    //   data => {
+    //     console.log(data);
+    //   }
+    // );
+    // this.http.post('./assets/contacts.json', 'labas').subscribe(
+    //   data => console.log(data)
+    // );
   }
 
   @Input()
@@ -49,11 +61,26 @@ export class ContactComponent implements OnInit {
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     this.visible = false;
   }
-  //
-  // onLoad() {
-  //   var that = this;
-  //   setTimeout(function() {
-  //     that.parent.loading = false;
-  //   }, 500);
-  // }
+
+  public getJSON(): Observable<any> {
+    return this.http.get('./assets/contacts.json');
+  }
+
+  save() {
+    this.nameError = false;
+    this.emailError = false;
+    this.messageError = false;
+    if (!this.name.length) {
+      this.nameError = true;
+    }
+    if (!this.email.length || !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+      this.emailError = true;
+    }
+    if (!this.message.length) {
+      this.messageError = true;
+    }
+    console.log(this.name, this.email, this.message);
+
+  }
+
 }
