@@ -2,7 +2,7 @@
 
   <div class="container">
 
-    <div class="row justify-content-center position-relative align-items-center h-100">
+    <div class="row justify-content-center position-relative align-items-center">
       <div class="close-button px-3" (click)="visible = false">
         <div class="container">
           <span>Close</span>
@@ -72,14 +72,14 @@
             </a>
           </div>
 
-          <form (ngSubmit)="save()" novalidate>
-            <div class="form-group">
-              <input class="form-control p-3 invert" type="text" placeholder="Your name*" [(ngModel)]="name" name="name" [ngClass]="{'border-danger': nameError}">
-              <input class="form-control p-3 invert" type="email" placeholder="Your email*" [(ngModel)]="email" name="email" [ngClass]="{'border-danger': emailError}">
-              <textarea class="form-control p-3 invert" placeholder="Drop me a line*" rows="5" [(ngModel)]="message" name="message" [ngClass]="{'border-danger': messageError}"></textarea>
-              <button type="submit" class="btn btn-primary invert w-100 p-3" [disabled]="!(name && email && message)">Send</button>
-            </div>
-          </form>
+          <!--<form (ngSubmit)="save()" novalidate>-->
+            <!--<div class="form-group">-->
+              <!--<input class="form-control p-3 invert" type="text" placeholder="Your name*" [(ngModel)]="name" name="name" [ngClass]="{'border-danger': nameError}">-->
+              <!--<input class="form-control p-3 invert" type="email" placeholder="Your email*" [(ngModel)]="email" name="email" [ngClass]="{'border-danger': emailError}">-->
+              <!--<textarea class="form-control p-3 invert" placeholder="Drop me a line*" rows="5" [(ngModel)]="message" name="message" [ngClass]="{'border-danger': messageError}"></textarea>-->
+              <!--<button type="submit" class="btn btn-primary invert w-100 p-3" [disabled]="!(name && email && message)">Send</button>-->
+            <!--</div>-->
+          <!--</form>-->
 
 
         </div>

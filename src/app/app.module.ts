@@ -1,3 +1,5 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -21,14 +23,16 @@ import {FormsModule} from '@angular/forms';
     PortfolioComponent,
     SkillsComponent
   ],
-  imports: [
-    BrowserModule,
+  imports:[
+ CommonModule,
+NgtUniversalModule,
+ 
+    
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

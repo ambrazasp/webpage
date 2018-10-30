@@ -46,6 +46,10 @@
 
   & > .container {
     min-height: calc(100vh - 6rem);
+
+    > .row {
+      min-height: 100vh;
+    }
   }
 }
 
